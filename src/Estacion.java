@@ -130,10 +130,7 @@ Estacion derecha;
 	     c.CalcularVagones(p.getNvagones(),t.getNvagones(),distancia);
 	     nvagonesCarbon=c.getNvagones();
 	}
-	public void armarTren(){
-		CalcularTercera();
-		CalcularPrimera();
-		CalcularCarbon();
+
 	
 	public void CalcularTercera(){
 		pasajeroTercera = pasajeroTercera+subenc3-bajanc3; 
@@ -166,7 +163,7 @@ Estacion derecha;
 		 	      if (nvagonesPrimera==0 && nvagonesTercera==0) { // si no hay vagones de pasajeros
 				   nvagonesCarbon=(distancia+resto)/100; 
 				  }else{ //si hay
-				        if (comprobador>0) { //significa que solo nesecito un vagon
+				        if (comprobador>0) { //significa que solo se nesecito un vagon
 		 			     nvagonesCarbon=1;
 		 	      	    }
 				        else{
