@@ -1,6 +1,6 @@
 
 
-public class Menu  {
+public class Menu extends JFrame implements ActionListener {
 	
 	
 	}
