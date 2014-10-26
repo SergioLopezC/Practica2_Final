@@ -82,5 +82,46 @@ public class Menu extends JFrame implements ActionListener {
 		  contenedor.add(etiqueta);
 		  contenedor.add(nEstacion);
 	}
-	
+		public void abrirArchivo(){
+		 JFileChooser selector=new JFileChooser();
+		   selector.setDialogTitle("Abrir");
+		   FileNameExtensionFilter filtro=new FileNameExtensionFilter("Archivos txt","txt");
+	       selector.setFileFilter(filtro);
+	       int resultado=selector.showOpenDialog(this);
+	       if(resultado==JFileChooser.APPROVE_OPTION)
+	        {
+	    	   path= selector.getSelectedFile().getAbsolutePath();
+	    	  
+	        }
+           
+	}
+		public void leerTxt(String path){ //direccion del archivo
+	 String linea;
+	 String temp[]=null;
+        try{
+        	FileReader fr= new FileReader(path);
+            BufferedReader bufer = new BufferedReader(fr); 
+            while((linea = bufer.readLine())!= null){//haz el ciclo, mientras bfReader tiene dato
+            	 temp = linea.split(" ");
+            	 Estacion estacion = new Estacion();
+              	 estacion.setNombre(temp[0]);
+              	 estacion.setId(Integer.parseInt(temp[1]));
+              	 estacion.setDistancia(Integer.parseInt(temp[2]));
+              	 estacion.setSubenc1(Integer.parseInt(temp[3]));
+              	 estacion.setBajanc1(Integer.parseInt(temp[4]));
+              	 estacion.setSubenc3(Integer.parseInt(temp[5]));
+              	 estacion.setBajanc3(Integer.parseInt(temp[6]));
+              	 doble.agregar(estacion);
+           	}  
+            fr.close();
+            bufer.close();
+            for(int i = 0;i<temp.length;i++){
+            	System.out.println(temp[i]);
+            }
+        }catch(Exception e){ 
+        	JOptionPane.showMessageDialog(null,"El Archivo no fue encontrado","Error", JOptionPane.INFORMATION_MESSAGE);
+        	System.exit(0);
+
+        }        
+    }
 	}
