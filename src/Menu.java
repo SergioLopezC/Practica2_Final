@@ -32,7 +32,7 @@ public class Menu extends JFrame implements ActionListener {
 	public Menu(){
 		this.setTitle("Tren");
 		  /**permite iniciar las propiedades de los componentes*/ 
-		    Dimension d = new Dimension();//objeto para obtener el tamaño de la pantalla     
+		Dimension d = new Dimension();//objeto para obtener el tamaño de la pantalla     
 	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//finaliza el programa cuando se da click en la X
 	        setResizable(false);//quita la opcion de cambiar tamanño
 	        setLocation((int) ((d.getWidth()/2)+200), 50);//ubicacion donde se muestra la ventana (x, y)
@@ -76,7 +76,7 @@ public class Menu extends JFrame implements ActionListener {
 	          panel.setBackground(Color.gray); 
 	          panel.setLayout( new GridLayout()); 
 	          panel.add(canvas, BorderLayout.CENTER ); 
-	         // contenedor.add(panel);
+	          contenedor.add(panel);
 		  contenedor.add(bretroceder);
 		  contenedor.add(bavanzar);
 		  contenedor.add(etiqueta);
