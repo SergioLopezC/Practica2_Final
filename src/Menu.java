@@ -124,4 +124,46 @@ public class Menu extends JFrame implements ActionListener {
 
         }        
     }
+    		public void actionPerformed(ActionEvent e) {
+		if (e.getSource()==item1) {
+			abrirArchivo();
+             leerTxt(path);
+             canvas.limpiar();
+             etiqueta.setText(doble.inicio.getNombre());
+             nEstacion.setText(Integer.toString(doble.inicio.getId()));
+             doble.tren();
+    	     canvas.setdatos(doble.inicio.getnvagonesPrimera(),doble.inicio.getnvagonesTercera(),doble.inicio.getnvagonesCarbon());
+    	     repaint();
+		   	 System.out.println("El tamano de contenedor es: " + doble.tamano());
+			 doble.imprimir();
+        }
+		if (e.getSource()==bavanzar) {
+			// cont++;
+			//etiqueta.setText(doble.buscar(cont));
+			etiqueta.setText(doble.moverse(1).getNombre());
+			nEstacion.setText(Integer.toString(doble.moverse.getId()));
+			canvas.setdatos(doble.moverse.getnvagonesPrimera(),doble.moverse.getnvagonesTercera(),doble.moverse.getnvagonesCarbon());
+    	    repaint();
+			System.out.println();
+			
+			
+			
+			//JFrame marco = new JFrame("Listas representación Grafica");  
+			//marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
+			//marco.add(canvas);
+			//marco.setSize(1000, 500);
+            //marco.setVisible(true);
+
+            
+	        }
+		if (e.getSource()==bretroceder) {
+			etiqueta.setText(doble.moverse(0).getNombre());
+			nEstacion.setText(Integer.toString(doble.moverse.getId()));
+			canvas.setdatos(doble.moverse.getnvagonesPrimera(),doble.moverse.getnvagonesTercera(),doble.moverse.getnvagonesCarbon());
+    	    repaint();
+    	    System.out.println(doble.moverse.pasajeroPrimera);
+		
+	          
+	        }
+	}
 	}
