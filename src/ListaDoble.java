@@ -14,11 +14,6 @@ public boolean vacio()
 	    {
 	        return(this.inicio == null);
 	    }
-	    
-public void agregar(){
-	
-}
-
 public void agregar(Estacion nuevo){
 	 if(vacio())
      {
@@ -48,11 +43,8 @@ public void imprimir()
            while(actual != fin)
            {
         	   actual.imprimir_datos();
-               //print=print+actual.getNombre()+" ";
-               actual = actual.derecha;
+                   actual = actual.derecha;
            }
-        // print=print+actual.getNombre();
-           //System.out.println(print);
  }
 	   
 }
@@ -76,7 +68,7 @@ public Estacion moverse(int estado){
 	}
 	return moverse;
 	}
-public void tren(){
+/*public void tren(){
 	if (vacio()){ 
 	System.out.println("la lista esta Vacia" ); 
 	} 
@@ -87,6 +79,6 @@ public void tren(){
 	 				Actual=Actual.derecha; 
 	 			} 
 		 	} 
-	    } 	
+	    } */	
 
 }
