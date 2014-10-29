@@ -24,6 +24,7 @@ public class Menu extends JFrame implements ActionListener {
 	JMenuBar barra;
 	JMenu menu1;
 	JMenuItem item1;
+	JTextField posicion;
 	JButton bretroceder,bavanzar,obtener,eliminar;
 	JLabel etiqueta,nEstacion,nombre1,nombre2,nombre3;
 	JPanel panel;
@@ -72,6 +73,8 @@ public class Menu extends JFrame implements ActionListener {
 		  setJMenuBar(barra);
 		  item1.addActionListener(this);//escuchador
 		  
+		   posicion= new JTextField();
+		  posicion.setBounds(670, 520, 90, 30);
 		  obtener= new JButton();
 		  obtener.setText("obtener posicion");
 		  obtener.setBounds(780, 520, 130, 35);
