@@ -36,29 +36,19 @@ public int tamano(){
 }
 public void imprimir()
 {
-	//String print="";
-	   if(!vacio())
-       {
-           Estacion actual =inicio;
-           while(actual != fin)
-           {
-        	   actual.imprimir_datos();
-                   actual = actual.derecha;
-           }
- }
-	   
+	if (vacio()){
+		System.out.println("la lista esta Vacia" );
+	}
+	else{
+		Estacion Actual=inicio;
+		while(Actual != null){
+		    Actual.imprimir_datos();;
+			Actual=Actual.derecha;
+		}
+		System.out.println();
+	}
 }
 
-public String buscar(int id){//no lo he usado pero creo que servira XD
-	Estacion temp=inicio;
-	while(temp!=null){
-		if (temp.getId()==id){
-			return temp.getNombre();
-		}
-		temp=temp.derecha;
-	}
-	return "Nose encontro";
-}
 public Estacion moverse(int estado){
 	if(estado==1){
 		moverse=moverse.derecha;
@@ -68,17 +58,5 @@ public Estacion moverse(int estado){
 	}
 	return moverse;
 	}
-/*public void tren(){
-	if (vacio()){ 
-	System.out.println("la lista esta Vacia" ); 
-	} 
-	else{ 
-		Estacion Actual=inicio; 
-		while(Actual != null){ 
-		 			Actual.armarTren();
-	 				Actual=Actual.derecha; 
-	 			} 
-		 	} 
-	    } */	
 
 }
