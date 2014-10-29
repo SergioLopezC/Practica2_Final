@@ -134,7 +134,7 @@ public class Estacion {
 	}
 
 	public void imprimir_datos(){
-        System.out.println("Nombre: "+ nombre+", Edad:"+"id "+id+"distancia:"+distancia+subenc1+bajanc1+" "+subenc3+bajanc3+pasajeroPrimera+pasajeroTercera);
+         System.out.println("Nombre: "+ nombre+", Edad:"+"id: "+id+", Distancia: "+distancia+", Suben clase 1: "+subenc1+", Bajan clase 1: "+bajanc1+", Suben clase 3: "+subenc3+", Bajan clase 3: "+bajanc3);
         }
 
 	public void setNvagonesTercera(int nvagonesTercera) {
