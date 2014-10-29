@@ -37,11 +37,11 @@ public class Canvas extends JPanel  {
 	}
 	public void paint(Graphics g) {  
 		g.setColor(Color.red); 
-		g.fillRect(50,10,40, 40);
+		g.fillRect(68,6,30, 30);
 		g.setColor(Color.blue); 
-		g.fillRect(400,10,40, 40);
+		g.fillRect(371,6,30, 30);
 		g.setColor(Color.CYAN); 
-		g.fillRect(790,10,40, 40);
+		g.fillRect(671,6,30, 30);
 		for(int i=0;i<tercera;i++){
 		if(i==0){
 			esp = 100;
