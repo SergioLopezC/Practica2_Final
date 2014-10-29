@@ -33,7 +33,7 @@ public class Menu extends JFrame implements ActionListener {
 	PrimeraClase p = new PrimeraClase();
 	TerceraClase t = new TerceraClase();
 	VagonCarbon c = new VagonCarbon();
-	LIstaDoble doble = new LIstaDoble();
+	ListaDoble doble = new ListaDoble();
 	Container contenedor;
 	Canvas canvas=new Canvas();
 	
