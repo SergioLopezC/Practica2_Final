@@ -167,11 +167,8 @@ public class Menu extends JFrame implements ActionListener {
            	}  
             fr.close();
             bufer.close();
-            for(int i = 0;i<temp.length;i++){
-            	System.out.println(temp[i]);
-            }
         }catch(Exception e){ 
-        	JOptionPane.showMessageDialog(null,"El Archivo no fue encontrado","Error", JOptionPane.INFORMATION_MESSAGE);
+        	JOptionPane.showMessageDialog(null,"El Archivo Incorrecto,se cerrara el programa","Error", JOptionPane.INFORMATION_MESSAGE);
         	System.exit(0);
 
         }        
