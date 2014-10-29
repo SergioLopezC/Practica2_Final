@@ -25,16 +25,14 @@ public class Menu extends JFrame implements ActionListener {
 	JMenu menu1;
 	JMenuItem item1;
 	JButton bretroceder,bavanzar;
-	JLabel etiqueta,nEstacion;
+	JLabel etiqueta,nEstacion,nombre1,nombre2,nombre3;
 	JPanel panel;
 	String path;
-	int pasajeroPrimera;
-        int pasajeroTercera;
-	int nvagonesCarbon;
-	int nvagonesPrimera=0;
-	int nvagonesTercera=0;
 	
 	//instancias
+	PrimeraClase p = new PrimeraClase();
+	TerceraClase t = new TerceraClase();
+	VagonCarbon c = new VagonCarbon();
 	LIstaDoble doble = new LIstaDoble();
 	Container contenedor;
 	Canvas canvas=new Canvas();
@@ -77,6 +75,18 @@ public class Menu extends JFrame implements ActionListener {
 		  etiqueta = new JLabel();
 		  etiqueta.setText("Estacion: ");
 		  etiqueta.setBounds(10, 520, 130, 35);
+		   nombre1= new JLabel();
+		  nombre1.setText("Vagon de primera Clase");
+		  nombre1.setBounds(150, 43, 150, 35);
+		  
+		  nombre2= new JLabel();
+		  nombre2.setText("Vagon de TerceraClase");
+		  nombre2.setBounds(500, 43, 150, 35);
+		  
+		  nombre3= new JLabel();
+		  nombre3.setText("Vagon de Carbon");
+		  nombre3.setBounds(900, 43, 150, 35);
+		  
 		  
 		  nEstacion = new JLabel();
 		  nEstacion.setText("id");
@@ -91,6 +101,9 @@ public class Menu extends JFrame implements ActionListener {
 		  contenedor.add(bavanzar);
 		  contenedor.add(etiqueta);
 		  contenedor.add(nEstacion);
+		  contenedor.add(nombre1);
+		  contenedor.add(nombre2);
+		  contenedor.add(nombre3);
 	}
 		public void abrirArchivo(){
 		   JFileChooser selector=new JFileChooser();
