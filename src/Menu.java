@@ -76,15 +76,15 @@ public class Menu extends JFrame implements ActionListener {
 		  etiqueta.setText("Estacion: ");
 		  etiqueta.setBounds(10, 520, 130, 35);
 		   nombre1= new JLabel();
-		  nombre1.setText("Vagon de primera Clase");
+		  nombre1.setText("Vagon Primera Clase");
 		  nombre1.setBounds(150, 43, 150, 35);
 		  
 		  nombre2= new JLabel();
-		  nombre2.setText("Vagon de TerceraClase");
+		  nombre2.setText("Vagon TerceraClase");
 		  nombre2.setBounds(500, 43, 150, 35);
 		  
 		  nombre3= new JLabel();
-		  nombre3.setText("Vagon de Carbon");
+		  nombre3.setText("Vagon Carbon");
 		  nombre3.setBounds(900, 43, 150, 35);
 		  
 		  
@@ -143,7 +143,7 @@ public class Menu extends JFrame implements ActionListener {
            	}  
             fr.close();
             bufer.close();
-             JOptionPane.showMessageDialog(null,"Archivos cargados con Exito","Aviso", JOptionPane.INFORMATION_MESSAGE);
+             JOptionPane.showMessageDialog(null,"El Archivo se cargo con Exito","Aviso", JOptionPane.INFORMATION_MESSAGE);
         }catch(Exception e){ 
         	JOptionPane.showMessageDialog(null,"El Archivo Incorrecto,se cerrara el programa","Error", JOptionPane.INFORMATION_MESSAGE);
         	System.exit(0);
