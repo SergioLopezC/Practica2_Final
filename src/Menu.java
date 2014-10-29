@@ -93,19 +93,18 @@ public class Menu extends JFrame implements ActionListener {
 		  contenedor.add(nEstacion);
 	}
 		public void abrirArchivo(){
-		 JFileChooser selector=new JFileChooser();
+		   JFileChooser selector=new JFileChooser();
 		   selector.setDialogTitle("Abrir");
 		   FileNameExtensionFilter filtro=new FileNameExtensionFilter("Archivos txt","txt");
-	       selector.setFileFilter(filtro);
-	       int resultado=selector.showOpenDialog(this);
-	       if(resultado==JFileChooser.APPROVE_OPTION)
-	        {
-	    	   path= selector.getSelectedFile().getAbsolutePath();
+	           selector.setFileFilter(filtro);
+	           int resultado=selector.showOpenDialog(this);
+	           if(resultado==JFileChooser.APPROVE_OPTION)
+	            {
+	    	      path= selector.getSelectedFile().getAbsolutePath();
 	    	  
-	        }
-           
-	}
-		public void leerTxt(String path){ //direccion del archivo
+	            }
+             	}
+        public void leerTxt(String path){ //direccion del archivo
 	 String linea;
 	 String temp[]=null;
         try{
@@ -121,6 +120,49 @@ public class Menu extends JFrame implements ActionListener {
               	 estacion.setBajanc1(Integer.parseInt(temp[4]));
               	 estacion.setSubenc3(Integer.parseInt(temp[5]));
               	 estacion.setBajanc3(Integer.parseInt(temp[6]));
+              	        pasajeroTercera = pasajeroTercera+Integer.parseInt(temp[5])-Integer.parseInt(temp[6]); 
+        		int ayuda = pasajeroTercera%40; 
+        		if (ayuda==0) { 
+        			nvagonesTercera=pasajeroTercera/40;
+        	                estacion.setNvagonesTercera(nvagonesTercera);
+        		}else{ 
+        			nvagonesTercera=(pasajeroTercera+(40-ayuda))/40;
+        		        estacion.setNvagonesTercera(nvagonesTercera);
+        		     }   
+        		pasajeroPrimera = pasajeroPrimera+Integer.parseInt(temp[3])-Integer.parseInt(temp[4]); 
+        		int ayuda1 = pasajeroPrimera%10; 
+        		if (ayuda==0) { 
+        			      nvagonesPrimera=1;
+        			      estacion.setNvagonesPrimera(nvagonesPrimera); 
+        	        }else{ 
+        		     nvagonesPrimera=(pasajeroPrimera+(10-ayuda1))/10;
+        		     estacion.setNvagonesPrimera(nvagonesPrimera);
+        	         }   
+              	 
+        		int comprobador =(100-((nvagonesPrimera+nvagonesTercera)*10))-Integer.parseInt(temp[2]); 
+		 	int resto=0; 
+		 		  //analiza la distancia
+        		if (Integer.parseInt(temp[2])<100) { 
+        			resto=100-Integer.parseInt(temp[2]);
+	       		}
+        		else{  
+	       	            resto=Integer.parseInt(temp[2])%100; 
+        		}
+		 	if (nvagonesPrimera==0 && nvagonesTercera==0) { // si no hay vagones de pasajeros
+			   nvagonesCarbon=(Integer.parseInt(temp[2])+resto)/100; 
+		           estacion.setNvagonesCarbon(nvagonesCarbon);
+		        }else{ //si hay
+				  if (comprobador>0) { //significa que solo nesecito un vagon
+		 			nvagonesCarbon=1;
+		 			estacion.setNvagonesCarbon(nvagonesCarbon);
+		 	      	    }
+				    else{
+		 			 nvagonesCarbon=((-comprobador)/100)+2;
+		 			 estacion.setNvagonesCarbon(nvagonesCarbon);
+		 	            } 
+
+	        }
+              	 System.out.println(pasajeroPrimera);
               	 doble.agregar(estacion);
            	}  
             fr.close();
