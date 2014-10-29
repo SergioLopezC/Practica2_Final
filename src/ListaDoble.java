@@ -58,5 +58,43 @@ public Estacion moverse(int estado){
 	}
 	return moverse;
 	}
+public boolean eliminar_pos(int a){
+ Estacion actual = inicio; 
+ Estacion pivote = null;
+   for(int pos =0;pos<a;pos++){
+       if(actual != null){
+       actual = actual.derecha;
+       }
+       else
+        return false;
+   }
+   if(actual.derecha != null){   
+    pivote = actual.derecha;
+    pivote.izquierda = actual.izquierda;
+   } 
+   else{
+   fin = actual.izquierda;
+   }
+  if(actual.izquierda != null){   
+    pivote = actual.izquierda;
+    pivote.derecha = actual.derecha;
+   } 
+   else{
+   inicio = actual.derecha;
+   }
+ return true;
+}
+public Estacion obtener(int a){
+    Estacion actual = inicio;
+      for(int pos =0;pos<a;pos++){
+          if(actual != null){
+          actual = actual.derecha;
+          }
+          else 
+              return null;
+      }
+    
+    return actual;
+ }
 
 }
