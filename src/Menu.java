@@ -111,7 +111,7 @@ public class Menu extends JFrame implements ActionListener {
         	FileReader fr= new FileReader(path);
             BufferedReader bufer = new BufferedReader(fr); 
             while((linea = bufer.readLine())!= null){//haz el ciclo, mientras bfReader tiene dato
-            	 temp = linea.split(" ");
+                 temp = linea.split(" ");
             	 Estacion estacion = new Estacion();
               	 estacion.setNombre(temp[0]);
               	 estacion.setId(Integer.parseInt(temp[1]));
@@ -120,50 +120,13 @@ public class Menu extends JFrame implements ActionListener {
               	 estacion.setBajanc1(Integer.parseInt(temp[4]));
               	 estacion.setSubenc3(Integer.parseInt(temp[5]));
               	 estacion.setBajanc3(Integer.parseInt(temp[6]));
-              	        pasajeroTercera = pasajeroTercera+Integer.parseInt(temp[5])-Integer.parseInt(temp[6]); 
-        		int ayuda = pasajeroTercera%40; 
-        		if (ayuda==0) { 
-        			nvagonesTercera=pasajeroTercera/40;
-        	                estacion.setNvagonesTercera(nvagonesTercera);
-        		}else{ 
-        			nvagonesTercera=(pasajeroTercera+(40-ayuda))/40;
-        		        estacion.setNvagonesTercera(nvagonesTercera);
-        		     }   
-        		pasajeroPrimera = pasajeroPrimera+Integer.parseInt(temp[3])-Integer.parseInt(temp[4]); 
-        		int ayuda1 = pasajeroPrimera%10; 
-        		if (ayuda==0) { 
-        			      nvagonesPrimera=1;
-        			      estacion.setNvagonesPrimera(nvagonesPrimera); 
-        	        }else{ 
-        		     nvagonesPrimera=(pasajeroPrimera+(10-ayuda1))/10;
-        		     estacion.setNvagonesPrimera(nvagonesPrimera);
-        	         }   
-              	 
-        		int comprobador =(100-((nvagonesPrimera+nvagonesTercera)*10))-Integer.parseInt(temp[2]); 
-		 	int resto=0; 
-		 		  //analiza la distancia
-        		if (Integer.parseInt(temp[2])<100) { 
-        			resto=100-Integer.parseInt(temp[2]);
-	       		}
-        		else{  
-	       	            resto=Integer.parseInt(temp[2])%100; 
-        		}
-		 	if (nvagonesPrimera==0 && nvagonesTercera==0) { // si no hay vagones de pasajeros
-			   nvagonesCarbon=(Integer.parseInt(temp[2])+resto)/100; 
-		           estacion.setNvagonesCarbon(nvagonesCarbon);
-		        }else{ //si hay
-				  if (comprobador>0) { //significa que solo nesecito un vagon
-		 			nvagonesCarbon=1;
-		 			estacion.setNvagonesCarbon(nvagonesCarbon);
-		 	      	    }
-				    else{
-		 			 nvagonesCarbon=((-comprobador)/100)+2;
-		 			 estacion.setNvagonesCarbon(nvagonesCarbon);
-		 	            } 
-
-	        }
-              	 System.out.println(pasajeroPrimera);
-              	 doble.agregar(estacion);
+              	 t.CalcularVagones(Integer.parseInt(temp[5]), Integer.parseInt(temp[6]));
+              	 p.CalcularVagones(Integer.parseInt(temp[3]), Integer.parseInt(temp[4]));
+              	 c.CalcularVagones(p.getNvagones(), t.getNvagones(), Integer.parseInt(temp[2]));
+                 estacion.setNvagonesPrimera(p.getNvagones());
+                 estacion.setNvagonesTercera(t.getNvagones());
+                 estacion.setNvagonesCarbon(c.getNvagones());
+                 doble.agregar(estacion);
            	}  
             fr.close();
             bufer.close();
