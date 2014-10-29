@@ -1,5 +1,5 @@
 public class Estacion {
-  Estacion derecha;
+        Estacion derecha;
 	Estacion izquierda;
 	
 	String nombre;
