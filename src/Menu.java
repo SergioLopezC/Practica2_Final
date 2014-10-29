@@ -167,6 +167,7 @@ public class Menu extends JFrame implements ActionListener {
            	}  
             fr.close();
             bufer.close();
+             JOptionPane.showMessageDialog(null,"Archivos cargados con Exito","Aviso", JOptionPane.INFORMATION_MESSAGE);
         }catch(Exception e){ 
         	JOptionPane.showMessageDialog(null,"El Archivo Incorrecto,se cerrara el programa","Error", JOptionPane.INFORMATION_MESSAGE);
         	System.exit(0);
