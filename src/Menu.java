@@ -28,10 +28,20 @@ public class Menu extends JFrame implements ActionListener {
 	JLabel etiqueta,nEstacion;
 	JPanel panel;
 	String path;
+	int pasajeroPrimera;
+        int pasajeroTercera;
+	int nvagonesCarbon;
+	int nvagonesPrimera=0;
+	int nvagonesTercera=0;
+	
+	//instancias
+	LIstaDoble doble = new LIstaDoble();
+	Container contenedor;
+	Canvas canvas=new Canvas();
 	
 	public Menu(){
 		this.setTitle("Tren");
-		  /**permite iniciar las propiedades de los componentes*/ 
+		/**permite iniciar las propiedades de los componentes*/ 
 		Dimension d = new Dimension();//objeto para obtener el tamaño de la pantalla     
 	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//finaliza el programa cuando se da click en la X
 	        setResizable(false);//quita la opcion de cambiar tamanño
