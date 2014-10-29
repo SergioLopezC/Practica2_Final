@@ -24,7 +24,7 @@ public class Menu extends JFrame implements ActionListener {
 	JMenuBar barra;
 	JMenu menu1;
 	JMenuItem item1;
-	JButton bretroceder,bavanzar;
+	JButton bretroceder,bavanzar,obtener,eliminar;
 	JLabel etiqueta,nEstacion,nombre1,nombre2,nombre3;
 	JPanel panel;
 	String path;
@@ -71,6 +71,16 @@ public class Menu extends JFrame implements ActionListener {
 		  barra.add(menu1);
 		  setJMenuBar(barra);
 		  item1.addActionListener(this);//escuchador
+		  
+		  obtener= new JButton();
+		  obtener.setText("obtener posicion");
+		  obtener.setBounds(780, 520, 130, 35);
+		  obtener.addActionListener(this);
+		  
+		  eliminar= new JButton();
+		  eliminar.setText("eliminar por posicion");
+		  eliminar.setBounds(920, 520, 155, 35);
+		  eliminar.addActionListener(this);
 		  
 		  etiqueta = new JLabel();
 		  etiqueta.setText("Estacion: ");
@@ -174,6 +184,19 @@ public class Menu extends JFrame implements ActionListener {
 			canvas.setdatos(doble.moverse.getnvagonesPrimera(),doble.moverse.getnvagonesTercera(),doble.moverse.getnvagonesCarbon());
     	    repaint();
 	        }
+	        if (e.getSource()==eliminar) {
+			doble.eliminar(Integer.parseInt(posicion.getText()));
+			 System.out.println("El tamano de la lista es: " + doble.tamano());
+			doble.imprimir();
+		}
+		if (e.getSource()==obtener) {
+			nEstacion.setText(Integer.toString(doble.obtener(Integer.parseInt(posicion.getText())).getId()));
+			etiqueta.setText(doble.obtener(Integer.parseInt(posicion.getText())).getNombre());
+			canvas.setdatos(doble.obtener(Integer.parseInt(posicion.getText())).getnvagonesPrimera(),doble.obtener(Integer.parseInt(posicion.getText())).getnvagonesTercera(),doble.obtener(Integer.parseInt(posicion.getText())).getnvagonesCarbon());
+    	    repaint();
+			
+			
+		}
 	}
 
 }
